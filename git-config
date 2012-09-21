@@ -44,6 +44,7 @@
   #bretire_safer = "!f(){ [ "$1." != "." ] && git branch -m $1 z$(date +%m-%d-)$1 || echo "Usage: git bretire branchname"; };f"
 
   cwip = commit -a -m "WIP"
+  cam = commit -a -m
   commitamend = commit --amend -C HEAD
   commitempty = commit --allow-empty
   commitupload = commit --allow-empty -m "upload"
@@ -52,7 +53,6 @@
   autosetupmerge = always
 [merge]
   conflictstyle = diff3
-  tool = p4merge
 [rerere]
   enabled = 1
 [diff]
@@ -77,3 +77,6 @@
 
 #### local only changes below:
 
+[user]
+	name = Daniel Murphy
+	email = toucansam99@gmail.com
