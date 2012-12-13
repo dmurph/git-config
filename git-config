@@ -34,6 +34,9 @@
   lf = log --relative-date --first-parent
   lp = log --relative-date -p
 
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
   conflicts = diff --name-only --diff-filter=U
   set-upstream-master = "!f(){ git branch --set-upstream $(git rev-parse --abbrev-ref HEAD) origin/master; };f"
   track-master = "!f(){ git branch --set-upstream $(git rev-parse --abbrev-ref HEAD) origin/master; };f"
