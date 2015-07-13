@@ -1,5 +1,8 @@
 # symlink from your home directory: ln -s git-config/git-config .gitconfig
 
+[core]
+  autocrlf = false
+  filemode = false
 [alias]
   s = status
   b = branch -vv
@@ -33,6 +36,7 @@
   lo = log --relative-date origin/HEAD..
   lf = log --relative-date --first-parent
   lp = log --relative-date -p
+  sort-headers = !tools/git/for-all-touched-files.py -c 'tools/sort-headers.py -f [[FILENAME]]'
 
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
@@ -49,11 +53,12 @@
   cwip = commit -a -m "WIP"
   cam = commit -a -m
   commitamend = commit --amend -C HEAD
+  amenda = commit --amend -C HEAD -a
   commitempty = commit --allow-empty
   commitupload = commit --allow-empty -m "upload"
   mb = merge-base @{upstream} HEAD
 [branch]
-  autosetupmerge = always
+  autosetuprebase = always
 [merge]
   conflictstyle = diff3
 [rerere]
@@ -82,4 +87,8 @@
 
 [user]
 	name = Daniel Murphy
-	email = danielmurphy161@gmail.com
+	email = dmurph@chromium.org
+[credential]
+	helper = cache --timeout=86400
+[http]
+	cookiefile = /usr/local/google/home/dmurph/.gitcookies
