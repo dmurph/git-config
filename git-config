@@ -3,6 +3,7 @@
 [core]
   autocrlf = false
   filemode = false
+#  pager = bash -lc 'diff-highlight | strip_diff_leading_symbols | less -r' -
 [alias]
   s = status
   b = branch -vv
@@ -82,13 +83,15 @@
   added = yellow
   changed = green
   untracked = cyan
+[color "diff-highlight"]
+  oldNormal = "red bold"
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"
 
-#### local only changes below:
+[include]
+  # For username / github token / etc
+  path = ~/git-config/gitconfig.local
 
-[user]
-	name = Daniel Murphy
-	email = dmurph@chromium.org
-[credential]
-	helper = cache --timeout=86400
 [http]
 	cookiefile = /usr/local/google/home/dmurph/.gitcookies
